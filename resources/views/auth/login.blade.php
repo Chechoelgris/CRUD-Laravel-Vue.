@@ -73,9 +73,9 @@
                                     <i class="fa fa-facebook"></i>
                                     Facebook
                                 </a>
-                                <a href="" class="btn btn-twitter text-light m-1">
-                                    <i class="fa fa-twitter "></i>
-                                    Twitter
+                                <a href="login/github" class="btn btn-github text-light m-1">
+                                    <i class="fa fa-github "></i>
+                                    GitHub
                                 </a>
                                 <a href="" class="btn btn-google text-light m-1">
                                     <i class="fa fa-google"></i>
