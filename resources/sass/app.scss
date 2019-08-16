@@ -6,3 +6,25 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+//icons
+@import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
+
+$facebook-color: #3b5998;
+$twitter-color: #55acee;
+$google-color: #dd4b39;
+.btn-facebook{
+
+    border-color: darken($facebook-color, 3%);
+    background-color: $facebook-color;
+}
+.btn-twitter{
+
+    border-color: darken($twitter-color, 3%);
+    background-color: $twitter-color;
+}
+.btn-google{
+
+    border-color: darken($google-color, 3%);
+    background-color: $google-color;
+}
