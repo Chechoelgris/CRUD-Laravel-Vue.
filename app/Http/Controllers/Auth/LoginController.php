@@ -48,6 +48,7 @@ class LoginController extends Controller
     public function redirectToProvider()
     {
         return Socialite::driver('github')->redirect();
+      // return Socialite::driver('facebook')->redirect();
     }
 
     /**
@@ -57,6 +58,8 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
+
+
         $githUbuser = Socialite::driver('github')->user();
         //dd($githUbuser);
         // $user->token;

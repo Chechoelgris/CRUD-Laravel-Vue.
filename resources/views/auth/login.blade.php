@@ -69,7 +69,7 @@
 
                     <h4 class="text-center">O ingresa con</h4>
                     <div class="row justify-content-center">
-                            <a href="" class="btn btn-facebook text-light m-1">
+                            <a href="login/facebook" class="btn btn-facebook text-light m-1">
                                     <i class="fa fa-facebook"></i>
                                     Facebook
                                 </a>

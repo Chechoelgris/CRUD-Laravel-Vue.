@@ -52,4 +52,12 @@ return [
         //'redirect' => 'http://boiling-retreat-15347.herokuapp.com/login/github/callback',
     ],
 
+    'facebook' => [
+        'client_id' => env('FACEBOOK_CLIENT_ID'),         // Your FACEBOOK Client ID
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'), // Your FACEBOOK Client Secret
+        'redirect' => env('FACEBOOK_CALLBACK'),
+
+        //'redirect' => 'http://boiling-retreat-15347.herokuapp.com/login/github/callback',
+    ],
+
 ];
