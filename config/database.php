@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 
+$DATABASE_URL = parse_url('mysql://b319faf13d2eb9:690eb026@us-cdbr-iron-east-02.cleardb.net/heroku_afc7d3fa628a9f1?reconnect=true');
 return [
 
     /*
@@ -46,11 +47,16 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'us-cdbr-iron-east-02.cleardb.net'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'heroku_afc7d3fa628a9f1'),
-            'username' => 'b319faf13d2eb9',
-            'password' => '690eb026',
+            //'host' => env('DB_HOST', 'localhost'),
+            'host' => $DATABASE_URL['host'],
+            //'port' => env('DB_PORT', '3306'),
+            'port' => $DATABASE_URL['port'],
+            //'database' => env('DB_DATABASE', 'laravel_youtube_vue'),
+            'database' => ltrim($DATABASE_URL['path'], "/"),
+            //'username' => 'root',
+            'username' => $DATABASE_URL['user'],
+            //'password' => null,
+            'password' => $DATABASE_URL['pass'],
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
