@@ -57,7 +57,7 @@ return [
         'client_secret' => env('GOOGLE_CLIENT_SECRET'), // Your GOOGLE Client Secret
         'redirect' => env('GOOGLE_CALLBACK'),
 
-        //'redirect' => 'http://boiling-retreat-15347.herokuapp.com/login/github/callback',
+       // 'redirect' => 'http://boiling-retreat-15347.herokuapp.com/login/github/callback',
     ],
 
 ];
