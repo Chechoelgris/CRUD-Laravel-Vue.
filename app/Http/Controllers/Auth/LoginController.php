@@ -65,18 +65,20 @@ class LoginController extends Controller
 
        //  add user to database
          if (!$user) {
-             $user = User::create([
-                 'email' => $actualUser->getEmail(),
-                 'name' => $actualUser->getName(),
-                 'provider_id' => $actualUser->getId(),
+                // $user = User::create([
+                //     'email' => $actualUser->getEmail(),
+                //     'name' => $actualUser->getName(),
+                //     'provider_id' => $actualUser->getId(),
 
-             ]);
+                // ]);
+                dd($user);
          }
 
 
         // login the user
-         Auth::login($user, true);
+    //      Auth::login($user, true);
 
-         return redirect($this->redirectTo);
-    }
+    //      return redirect($this->redirectTo);
+    dd($user);
+     }
 }
