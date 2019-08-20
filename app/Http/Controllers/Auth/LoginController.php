@@ -45,10 +45,10 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider()
+    public function redirectToProvider($provider)
     {
-        return Socialite::driver('github')->redirect();
-      // return Socialite::driver('facebook')->redirect();
+        //return Socialite::driver('github')->redirect();
+       return Socialite::driver($provider)->redirect();
     }
 
     /**
@@ -56,29 +56,27 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($provider)
     {
 
 
-        $githUbuser = Socialite::driver('github')->user();
-        //dd($githUbuser);
-        // $user->token;
+         $actualUser = Socialite::driver($provider)->user();
+         $user = User::where('email', $actualUser->getEmail())->first();
 
-        $user = User::where('provider_id', $githUbuser->getId())->first();
-        //add user to database
-        if (!$user) {
-            $user = User::create([
-                'email' => $githUbuser->getEmail(),
-                'name' => $githUbuser->getName(),
-                'provider_id' => $githUbuser->getId(),
+       //  add user to database
+         if (!$user) {
+             $user = User::create([
+                 'email' => $actualUser->getEmail(),
+                 'name' => $actualUser->getName(),
+                 'provider_id' => $actualUser->getId(),
 
-            ]);
-        }
+             ]);
+         }
 
 
-        //login the user
-        Auth::login($user, true);
+        // login the user
+         Auth::login($user, true);
 
-        return redirect($this->redirectTo);
+         return redirect($this->redirectTo);
     }
 }
