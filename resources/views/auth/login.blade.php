@@ -69,10 +69,10 @@
 
                     <h4 class="text-center">O ingresa con</h4>
                     <div class="row justify-content-center">
-                            <a href="login/facebook" class="btn btn-facebook text-light m-1">
+                            {{-- <a href="login/facebook" class="btn btn-facebook text-light m-1">
                                     <i class="fa fa-facebook"></i>
                                     Facebook
-                                </a>
+                                </a> --}}
                             <a href="{{ url('login/github') }}" class="btn btn-github text-light m-1">
                                     <i class="fa fa-github "></i>
                                     GitHub
