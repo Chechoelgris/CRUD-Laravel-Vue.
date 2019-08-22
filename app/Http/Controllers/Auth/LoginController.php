@@ -61,11 +61,11 @@ class LoginController extends Controller
 
 
          $actualUser = Socialite::driver($provider)->user();
-         $user = User::where('provider_id', $actualUser->getId())->first();
+         $user = User::where('email', $actualUser->getEmail())->first();
 
        //  add user to database
          if (!$user) {
-                 $user = User::create([
+                 $user = User::updateOrCreate([
                      'email' => $actualUser->getEmail(),
                      'name' => $actualUser->getName(),
                      'provider_id' => $actualUser->getId(),

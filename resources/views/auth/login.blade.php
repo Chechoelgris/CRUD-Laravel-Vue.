@@ -64,16 +64,11 @@
                                 @endif
                             </div>
                         </div>
-                    </form>
-                <div class="card-body ">
 
-                    <h4 class="text-center">O ingresa con</h4>
-                    <div class="row justify-content-center">
-                            {{-- <a href="login/facebook" class="btn btn-facebook text-light m-1">
-                                    <i class="fa fa-facebook"></i>
-                                    Facebook
-                                </a> --}}
-                            <a href="{{ url('login/github') }}" class="btn btn-github text-light m-1">
+                        <hr>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <a href="{{ url('login/github') }}" class="btn btn-github text-light m-1">
                                     <i class="fa fa-github "></i>
                                     GitHub
                                 </a>
@@ -81,8 +76,11 @@
                                     <i class="fa fa-google"></i>
                                     Google
                                 </a>
-                    </div>
-                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
                 </div>
             </div>
         </div>

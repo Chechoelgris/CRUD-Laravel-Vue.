@@ -85,22 +85,22 @@ export default {
 
         agregar(){
              if(this.nota.nombre.trim() === '' || this.nota.descripcion.trim() === ''){
-        alert('Debes completar todos los campos antes de guardar');
-        return;
-      }
-        const params = {
-            nombre:this.nota.nombre,
-            descripcion:this.nota.descripcion
-        }
+                    alert('Debes completar todos los campos antes de guardar');
+                    return;
+                }
+            const params = {
+                nombre:this.nota.nombre,
+                descripcion:this.nota.descripcion
+            }
 
 
-        this.nota.nombre = '';
-        this.nota.descripcion = '';
+            this.nota.nombre = '';
+            this.nota.descripcion = '';
 
-        axios.post('notas', params)
-            .then(res => {
-                this.notas.push(res.data)
-            })
+            axios.post('notas', params)
+                .then(res => {
+                    this.notas.push(res.data)
+                })
         },
         eliminarNota(item, index){
             axios.delete(`/notas/${item.id}`)
