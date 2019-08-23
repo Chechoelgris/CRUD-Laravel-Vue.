@@ -1974,7 +1974,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2037,6 +2036,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -38109,27 +38109,29 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("table", { staticClass: "table table-striped table-dark" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.personajes, function(personaje, index) {
-          return _c("tr", { key: index }, [
-            _c("th", { attrs: { scope: "row" } }, [
-              _vm._v(_vm._s(personaje.nivel))
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(personaje.nombre))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(personaje.raza))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(personaje.clase))])
-          ])
-        }),
-        0
-      )
+  return _c("div", { staticClass: "row justify-content-center" }, [
+    _c("div", { staticClass: "col-md-6 mb-5 bg-dark text-light " }, [
+      _c("table", { staticClass: "table table-striped table-dark" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.personajes, function(personaje, index) {
+            return _c("tr", { key: index }, [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(personaje.nivel))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(personaje.nombre))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(personaje.raza))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(personaje.clase))])
+            ])
+          }),
+          0
+        )
+      ])
     ])
   ])
 }

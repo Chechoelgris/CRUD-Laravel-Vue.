@@ -27,29 +27,36 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Rolcito') }}
+                    Rolcito
                 </a>
+
+
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Personajes
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-                            <a class="dropdown-item" href="{{ url('/personajes') }}">Mostrar</a>
-                            <a class="dropdown-item" href="{{ url('/personajes/create') }}">Crear</a>
+                 @if (Auth::user())
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Personajes
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                                    <a class="dropdown-item" href="{{ url('/personajes') }}">Mostrar</a>
+                                    <a class="dropdown-item" href="{{ url('/personajes/create') }}">Crear</a>
 
-                    </div>
-                </li>
+                            </div>
+                        </li>
 
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url('/notas') }}">Diario</a>
-                </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/notas') }}">Diario</a>
+                        </li>
 
-              </ul>
+                    </ul>
+                  @endif
+
 
  <!-- Right Side Of Navbar -->
  <ul class="navbar-nav ml-auto">

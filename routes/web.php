@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::resource('/notas', 'NotaController')->middleware('auth');
 Route::resource('/personajes', 'CharacterController')->middleware('auth');
-Route::resource('/personajes/{id}', 'CharacterController')->middleware('auth');
+//Route::resource('/personajes/{id}', 'CharacterController')->middleware('auth');
 
 
 

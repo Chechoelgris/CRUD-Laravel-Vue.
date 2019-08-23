@@ -1,7 +1,8 @@
 <template>
 
-         <div>
-            <table class="table table-striped table-dark">
+         <div class="row justify-content-center">
+             <div class="col-md-6 mb-5 bg-dark text-light ">
+                <table class="table table-striped table-dark">
                     <thead>
                         <tr>
                             <th scope="col">Lvl</th>
@@ -21,7 +22,7 @@
                         </tr>
                     </tbody>
                 </table>
-
+            </div>
          </div>
 
 </template>

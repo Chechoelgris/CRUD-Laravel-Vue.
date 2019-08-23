@@ -1,6 +1,5 @@
 <template>
     <div class="row justify-content-center">
-
         <div class="col-md-6 mb-5 bg-dark text-light p-4">
                 <form @submit.prevent="agregar">
                     <h3>Crear Personaje</h3>
