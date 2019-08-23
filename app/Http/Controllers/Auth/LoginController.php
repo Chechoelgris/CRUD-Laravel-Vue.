@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Rolcito\Http\Controllers\Auth;
 use Auth;
-use App\Http\Controllers\Controller;
-use App\User;
+use Rolcito\Http\Controllers\Controller;
+use Rolcito\User;
 
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;

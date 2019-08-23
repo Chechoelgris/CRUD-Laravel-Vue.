@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Rolcito;
 
 use Illuminate\Database\Eloquent\Model;
 

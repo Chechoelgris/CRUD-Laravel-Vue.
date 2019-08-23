@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card">
+            <div class="card text-white bg-dark">
                 <div class="card-header">Diario</div>
 
                 <div class="card-body">
@@ -14,14 +14,9 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">Personajes</div>
-
-                <div class="card-body">
 
                     <listar-personajes-component></listar-personajes-component>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>

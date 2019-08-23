@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Rolcito\Http\Controllers;
 
-use App\Character;
+use Rolcito\Character;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -51,6 +51,7 @@ class CharacterController extends Controller
         $character->sexo = $request->sexo;
         $character->user_id = auth()->id();
         $character->save();
+        return $character;
     }
 
     /**

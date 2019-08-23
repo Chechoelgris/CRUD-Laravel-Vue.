@@ -4,15 +4,10 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">Listado de Personajes</div>
+            <div class="col-md-9">
 
-                        <div class="card-body">
-                            <listar-personajes-component></listar-personajes-component>
+                    <listar-personajes-component></listar-personajes-component>
 
-                        </div>
-                    </div>
             </div>
         </div>
     </div

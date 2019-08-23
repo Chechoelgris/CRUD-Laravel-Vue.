@@ -11,9 +11,9 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('tareas-component', require('./components/TareasComponent.vue').default);
-Vue.component('personajes-component', require('./components/CharacterComponent.vue').default);
-Vue.component('listar-personajes-component', require('./components/ListCharacterComponent.vue').default);
+Vue.component('crearylistarnota-component', require('./components/notas/CreateAndListNotasComponent.vue').default);
+Vue.component('crearylistarpersonaje-component', require('./components/personajes/CreateAndListCharacterComponent.vue').default);
+Vue.component('listar-personajes-component', require('./components/personajes/ListCharacterComponent.vue').default);
 
 
 const app = new Vue({

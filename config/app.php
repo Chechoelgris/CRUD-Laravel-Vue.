@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Rolcito'),
 
     /*
     |--------------------------------------------------------------------------
@@ -169,11 +169,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Rolcito\Providers\AppServiceProvider::class,
+        Rolcito\Providers\AuthServiceProvider::class,
+        // Rolcito\Providers\BroadcastServiceProvider::class,
+        Rolcito\Providers\EventServiceProvider::class,
+        Rolcito\Providers\RouteServiceProvider::class,
 
     ],
 
