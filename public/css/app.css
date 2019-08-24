@@ -10658,3 +10658,22 @@ a.text-dark:focus {
   background-color: #522900 !important;
 }
 
+.text-naranjo {
+  color: #f27900;
+}
+
+.btn-facebook {
+  border-color: #37538d;
+  background-color: #3b5998;
+}
+
+.btn-github {
+  border-color: #2a2f33;
+  background-color: #31373b;
+}
+
+.btn-google {
+  border-color: #db3f2c;
+  background-color: #dd4b39;
+}
+

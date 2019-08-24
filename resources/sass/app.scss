@@ -28,4 +28,28 @@ $border-brown: #ffffff;
         background-color: lighten( $brown-dark, 5%)!important;
     }
 }
+.text-naranjo{
+    color: $text-brown;
+}
 
+//BOTONES RRSS INICIO DE SESION
+
+$facebook-color: #3b5998;
+$github-color: #31373b;
+$google-color: #dd4b39;
+
+.btn-facebook{
+
+    border-color: darken($facebook-color, 3%);
+    background-color: $facebook-color;
+}
+.btn-github{
+
+    border-color: darken($github-color, 3%);
+    background-color: $github-color;
+}
+.btn-google{
+
+    border-color: darken($google-color, 3%);
+    background-color: $google-color;
+}

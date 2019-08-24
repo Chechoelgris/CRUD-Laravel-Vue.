@@ -9,9 +9,9 @@
             <div class="col-md-12">
 
 
-                <personaje-component></personaje-component>
+                <show-character></show-character>
 
-                <crear-personaje-form></crear-personaje-form>
+                <create-character></create-character>
             </div>
 
     </div

@@ -11,10 +11,10 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('crearylistarnota-component', require('./components/notas/CreateAndListNotasComponent.vue').default);
-Vue.component('crearylistarpersonaje-component', require('./components/personajes/CreateAndListCharacterComponent.vue').default);
-Vue.component('personaje-component', require('./components/personajes/ShowCharacterComponent.vue').default);
-Vue.component('crear-personaje-form', require('./components/personajes/AddCharacterComponent.vue').default);
+Vue.component('crud-nota', require('./components/notas/CrudNotas.vue').default);
+
+Vue.component('show-character', require('./components/personajes/Show.vue').default);
+Vue.component('create-character', require('./components/personajes/Add.vue').default);
 
 Vue.component('spinner-load', require('./components/utilidades/SpinnerComponent.vue').default);
 
