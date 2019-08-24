@@ -10,21 +10,22 @@
 //icons
 @import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
 
-$facebook-color: #3b5998;
-$github-color: #31373b;
-$google-color: #dd4b39;
-.btn-facebook{
+$brown-dark: #381c00;
+$text-brown: #f27900;
+$border-brown: #ffffff;
 
-    border-color: darken($facebook-color, 3%);
-    background-color: $facebook-color;
-}
-.btn-github{
+.bg-brown-dark{
+    background-color: $brown-dark;
 
-    border-color: darken($github-color, 3%);
-    background-color: $github-color;
-}
-.btn-google{
 
-    border-color: darken($google-color, 3%);
-    background-color: $google-color;
 }
+.btn-brown-dark{
+
+    background-color: $brown-dark;
+    border-color: $border-brown !important;
+    &:hover,
+    &:focus {
+        background-color: lighten( $brown-dark, 5%)!important;
+    }
+}
+

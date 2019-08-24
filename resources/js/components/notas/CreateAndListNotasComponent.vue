@@ -1,6 +1,6 @@
 <template>
     <div class="row justify-content-center">
-        <div class="col-md-6 mb-5 bg-dark text-light p-4">
+        <div class="col-md-6 mb-5 bg-brown-dark text-light p-4">
             <form @submit.prevent="editarNota(nota)" v-if="editarActivo">
                 <h3>Editar Notas</h3>
                 <input type="text" placeholder="Nombre" class="form-control mb-2" v-model="nota.nombre">
@@ -14,18 +14,18 @@
 
             <form @submit.prevent="agregar" v-else>
                 <h3>Agregar Nota</h3>
-                <input type="text" placeholder="Nombre" class="form-control mb-2" v-model="nota.nombre">
+                <input type="text" placeholder="Titulo" class="form-control mb-2" v-model="nota.nombre">
                 <textarea class="form-control mb-2"  rows="3" v-model="nota.descripcion" placeholder="Detalles"></textarea>
 
 
-                <button class="btn btn-outline-success" type="submit">Agregar</button>
+                <button class="btn btn-outline-light" type="submit">Agregar</button>
             </form>
 
 
             <hr class="mt-3">
                 <div class="row container justify-content-between">
                     <h3>Diario</h3>
-                    <button class="btn btn-outline-success"
+                    <button class="btn btn-outline-light"
                     type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
                     >Mostrar</button>
                 </div>

@@ -13,7 +13,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 Vue.component('crearylistarnota-component', require('./components/notas/CreateAndListNotasComponent.vue').default);
 Vue.component('crearylistarpersonaje-component', require('./components/personajes/CreateAndListCharacterComponent.vue').default);
-Vue.component('listar-personajes-component', require('./components/personajes/ListCharacterComponent.vue').default);
+Vue.component('personaje-component', require('./components/personajes/ShowCharacterComponent.vue').default);
+Vue.component('crear-personaje-form', require('./components/personajes/AddCharacterComponent.vue').default);
+
+Vue.component('spinner-load', require('./components/utilidades/SpinnerComponent.vue').default);
 
 
 const app = new Vue({

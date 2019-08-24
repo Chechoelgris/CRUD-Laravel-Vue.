@@ -12,6 +12,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -21,10 +23,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-secondary">
+<body class="bg-dark">
     <div id="app">
 
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-brown-dark shadow-sm ">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Rolcito
@@ -39,15 +41,8 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                  @if (Auth::user())
                     <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Personajes
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-                                    <a class="dropdown-item" href="{{ url('/personajes') }}">Mostrar</a>
-                                    <a class="dropdown-item" href="{{ url('/personajes/create') }}">Crear</a>
-
-                            </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/personajes') }}">Personajes</a>
                         </li>
 
                         <li class="nav-item">
@@ -94,6 +89,7 @@
             </div>
           </nav>
         <main class="py-4 " >
+
             @yield('content')
         </main>
     </div>

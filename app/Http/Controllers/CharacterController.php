@@ -42,16 +42,22 @@ class CharacterController extends Controller
      */
     public function store(Request $request)
     {
-        $character = new Character();
-        $character->nombre = $request->nombre;
-        $character->nivel = $request->nivel;
-        $character->raza = $request->raza;
-        $character->clase = $request->clase;
-       // $character->avatar = $request->avatar;
-        $character->sexo = $request->sexo;
-        $character->user_id = auth()->id();
-        $character->save();
-        return $character;
+        if ($request->ajax()){
+            $character = new Character();
+            $character->nombre = $request->nombre;
+            $character->nivel = $request->nivel;
+            $character->raza = $request->raza;
+            $character->clase = $request->clase;
+        // $character->avatar = $request->avatar;
+
+            $character->user_id = auth()->id();
+            $character->save();
+
+            return response()->json([
+                "message" => "Personaje Creado Correctamente.",
+                "character" => $character
+            ], 200);
+        }
     }
 
     /**
@@ -90,7 +96,7 @@ class CharacterController extends Controller
         $character->nivel = $request->nivel;
         $character->raza = $request->raza;
         $character->clase = $request->clase;
-        $character->sexo = $request->sexo;
+
        // $character->avatar = $request->avatar;
         $character->save();
         return $character;

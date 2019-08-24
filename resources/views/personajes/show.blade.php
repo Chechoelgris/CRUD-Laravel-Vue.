@@ -3,12 +3,16 @@
 @section('content')
 
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-9">
 
-                    <listar-personajes-component></listar-personajes-component>
 
+
+            <div class="col-md-12">
+
+
+                <personaje-component></personaje-component>
+
+                <crear-personaje-form></crear-personaje-form>
             </div>
-        </div>
+
     </div
 @endsection

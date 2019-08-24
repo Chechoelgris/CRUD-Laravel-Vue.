@@ -10644,18 +10644,17 @@ a.text-dark:focus {
   }
 }
 
-.btn-facebook {
-  border-color: #37538d;
-  background-color: #3b5998;
+.bg-brown-dark {
+  background-color: #381c00;
 }
 
-.btn-github {
-  border-color: #2a2f33;
-  background-color: #31373b;
+.btn-brown-dark {
+  background-color: #381c00;
+  border-color: #ffffff !important;
 }
 
-.btn-google {
-  border-color: #db3f2c;
-  background-color: #dd4b39;
+.btn-brown-dark:hover,
+.btn-brown-dark:focus {
+  background-color: #522900 !important;
 }
 
