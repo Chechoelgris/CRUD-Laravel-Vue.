@@ -53,3 +53,15 @@ $google-color: #dd4b39;
     border-color: darken($google-color, 3%);
     background-color: $google-color;
 }
+
+//marcos
+.drow{
+
+    border: silver 40px solid;
+  border-image-source: url(http://www.mclibre.org/consultar/htmlcss/css/ejemplos/img/css3-bordes/hormigas-210.png);
+  border-image-slice: 70;
+  border-image-repeat: stretch;
+
+  padding: 10px;
+  text-align: justify;
+}

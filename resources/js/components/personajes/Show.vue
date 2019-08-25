@@ -6,12 +6,14 @@
 	    </button>
             <spinner-load v-show="loading"></spinner-load>
         <div class="row justify-content-center">
-            <div class="col-md-4 mb-2" v-for="character in characters">
-                <div class="card bg-brown-dark text-light text-center" >
+            <div class="col-md-4 mb-2 " v-for="character in characters">
+                <div class="card bg-brown-dark text-light text-center " >
 
                     <img src="https://i.pinimg.com/736x/dd/4f/0a/dd4f0a90c075e63e466ccb66172682b8.jpg"
-                            class="card-img-top mx-auto d-block rounded-circle m-3"
-                            style="height: 250px; width: 250px; "
+                            class="card-img-top mx-auto d-block rounded-circle m-3 "
+                            style="height: 250px;
+                                width: 250px;
+                               "
                             v-if="character.raza === 'Mediano'">
 
                     <img src="https://www.rincondeldm.com/sites/default/files/wiki/254/enano.jpg"
@@ -20,7 +22,7 @@
                             v-else-if="character.raza === 'Enano'">
 
                     <img src="https://i.pinimg.com/564x/80/d6/72/80d67232817bda3178e2b2d1193023b1.jpg"
-                            class="card-img-top mx-auto d-block rounded-circle m-3"
+                            class="card-img-top mx-auto d-block rounded-circle m-3 "
                             style="height: 250px; width: 250px; "
                             v-else-if="character.raza === 'Elfo'">
 
@@ -58,7 +60,7 @@
                     <div class="card-body">
                         <h2 class="card-title text-light">{{character.nombre}}</h2>
                         <p class="card-text text-naranjo">{{character.raza}} / {{character.clase}}</p>
-                        <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text drow">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="#" class="btn btn-outline-dark text-light brown-dark-hover">Detalles</a>
                     </div>
 

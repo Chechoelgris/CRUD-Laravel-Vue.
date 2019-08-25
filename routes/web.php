@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::resource('/notas', 'NotaController')->middleware('auth');
 Route::resource('/personajes', 'CharacterController')->middleware('auth');
+Route::resource('/razas', 'RazaController')->middleware('auth');
+
 //Route::resource('/personajes/{id}', 'CharacterController')->middleware('auth');
 
 

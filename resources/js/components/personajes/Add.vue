@@ -19,17 +19,11 @@
 
                         <div class="form-group">
                             <label for="razaSelect">Raza</label>
-                            <select class="form-control"  id="razaSelect" v-model="personaje.raza" >
+                            <select class="form-control"  id="razaSelect" v-model="personaje.raza" @change="onchange()">
 
-                                <option value="Enano">Enano</option>
-                                <option value="Elfo">Elfo</option>
-                                <option value="Mediano">Mediano</option>
-                                <option value="Humano">Humano</option>
-                                <option value="Draconido">Dracónido</option>
-                                <option value="Gnomo">Gnomo</option>
-                                <option value="Semielfo">Semielfo</option>
-                                <option value="Semiorco">Semiorco</option>
-                                <option value="Tiflin">Tiflin</option>
+                                <option v-bind:value="race.id" v-for="race in races">{{race.name}}</option>
+
+
                             </select>
                         </div>
 
@@ -80,8 +74,18 @@ export default {
         return {
             personajes: [],
             personaje: {nombre: '', raza: '', clase: '', nivel: '' },
+            races: [],
+            race: {id: '', name: ''},
+
 
         }
+    },
+    mounted(){
+axios.get('/razas')
+        .then(response => {
+            this.races = response.data;
+
+        })
     },
      created(){
         axios.get('/personajes')
@@ -91,11 +95,15 @@ export default {
         })
     },
     methods:{
-         agregar(){
+        onchange: function() {
+            console.log(this.personaje.raza)
+            //alert(this.key)
+        },
+        agregar(){
          if(this.personaje.nombre.trim() === '' || this.personaje.raza.trim() === '' || this.personaje.clase.trim() === '' || this.personaje.nivel.trim() === '' ){
              alert('Debes completar todos los campos antes de guardar');
          return;
-         }
+        }
         const params = {
             nombre:this.personaje.nombre,
             raza:this.personaje.raza,

@@ -15,6 +15,7 @@ Vue.component('crud-nota', require('./components/notas/CrudNotas.vue').default);
 
 Vue.component('show-character', require('./components/personajes/Show.vue').default);
 Vue.component('create-character', require('./components/personajes/Add.vue').default);
+Vue.component('show-races', require('./components/personajes/PopulateRaces.vue').default);
 
 Vue.component('spinner-load', require('./components/utilidades/SpinnerComponent.vue').default);
 

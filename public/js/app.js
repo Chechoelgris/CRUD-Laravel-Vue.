@@ -1946,12 +1946,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1962,17 +1956,32 @@ __webpack_require__.r(__webpack_exports__);
         raza: '',
         clase: '',
         nivel: ''
+      },
+      races: [],
+      race: {
+        id: '',
+        name: ''
       }
     };
   },
-  created: function created() {
+  mounted: function mounted() {
     var _this = this;
 
+    axios.get('/razas').then(function (response) {
+      _this.races = response.data;
+    });
+  },
+  created: function created() {
+    var _this2 = this;
+
     axios.get('/personajes').then(function (res) {
-      _this.personajes = res.data;
+      _this2.personajes = res.data;
     });
   },
   methods: {
+    onchange: function onchange() {
+      console.log(this.personaje.raza); //alert(this.key)
+    },
     agregar: function agregar() {
       if (this.personaje.nombre.trim() === '' || this.personaje.raza.trim() === '' || this.personaje.clase.trim() === '' || this.personaje.nivel.trim() === '') {
         alert('Debes completar todos los campos antes de guardar');
@@ -1999,6 +2008,42 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/personajes/PopulateRaces.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/personajes/PopulateRaces.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'races'
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/personajes/Show.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/personajes/Show.vue?vue&type=script&lang=js& ***!
@@ -2009,6 +2054,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _event_bus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../event-bus */ "./resources/js/event-bus.js");
+//
+//
 //
 //
 //
@@ -38447,62 +38494,36 @@ var render = function() {
                       staticClass: "form-control",
                       attrs: { id: "razaSelect" },
                       on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.personaje,
-                            "raza",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        }
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.personaje,
+                              "raza",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          function($event) {
+                            return _vm.onchange()
+                          }
+                        ]
                       }
                     },
-                    [
-                      _c("option", { attrs: { value: "Enano" } }, [
-                        _vm._v("Enano")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "Elfo" } }, [
-                        _vm._v("Elfo")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "Mediano" } }, [
-                        _vm._v("Mediano")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "Humano" } }, [
-                        _vm._v("Humano")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "Draconido" } }, [
-                        _vm._v("Dracónido")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "Gnomo" } }, [
-                        _vm._v("Gnomo")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "Semielfo" } }, [
-                        _vm._v("Semielfo")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "Semiorco" } }, [
-                        _vm._v("Semiorco")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "Tiflin" } }, [
-                        _vm._v("Tiflin")
+                    _vm._l(_vm.races, function(race) {
+                      return _c("option", { domProps: { value: race.id } }, [
+                        _vm._v(_vm._s(race.name))
                       ])
-                    ]
+                    }),
+                    0
                   )
                 ]),
                 _vm._v(" "),
@@ -38678,6 +38699,65 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/personajes/PopulateRaces.vue?vue&type=template&id=ed435780&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/personajes/PopulateRaces.vue?vue&type=template&id=ed435780& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "select",
+      { staticClass: "form-control", attrs: { id: "claseSelect" } },
+      [
+        _c("option", { attrs: { value: "Barbaro" } }, [_vm._v("Bárbaro")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "Bardo" } }, [_vm._v("Bardo")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "Brujo" } }, [_vm._v("Brujo")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "Clérigo" } }, [_vm._v("Clérigo")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "Druida" } }, [_vm._v("Druida")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "Explorador" } }, [
+          _vm._v("Explorador")
+        ]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "Guerrero" } }, [_vm._v("Guerrero")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "Hechicero" } }, [_vm._v("Hechicero")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "Mago" } }, [_vm._v("Mago")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "Monje" } }, [_vm._v("Monje")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "Paladin" } }, [_vm._v("Paladin")])
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/personajes/Show.vue?vue&type=template&id=63199c65&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/personajes/Show.vue?vue&type=template&id=63199c65& ***!
@@ -38725,15 +38805,15 @@ var render = function() {
         "div",
         { staticClass: "row justify-content-center" },
         _vm._l(_vm.characters, function(character) {
-          return _c("div", { staticClass: "col-md-4 mb-2" }, [
+          return _c("div", { staticClass: "col-md-4 mb-2 " }, [
             _c(
               "div",
-              { staticClass: "card bg-brown-dark text-light text-center" },
+              { staticClass: "card bg-brown-dark text-light text-center " },
               [
                 character.raza === "Mediano"
                   ? _c("img", {
                       staticClass:
-                        "card-img-top mx-auto d-block rounded-circle m-3",
+                        "card-img-top mx-auto d-block rounded-circle m-3 ",
                       staticStyle: { height: "250px", width: "250px" },
                       attrs: {
                         src:
@@ -38753,7 +38833,7 @@ var render = function() {
                   : character.raza === "Elfo"
                   ? _c("img", {
                       staticClass:
-                        "card-img-top mx-auto d-block rounded-circle m-3",
+                        "card-img-top mx-auto d-block rounded-circle m-3 ",
                       staticStyle: { height: "250px", width: "250px" },
                       attrs: {
                         src:
@@ -38833,7 +38913,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("p", { staticClass: "card-text " }, [
+                  _c("p", { staticClass: "card-text drow" }, [
                     _vm._v(
                       "Some quick example text to build on the card title and make up the bulk of the card's content."
                     )
@@ -51045,6 +51125,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 Vue.component('crud-nota', __webpack_require__(/*! ./components/notas/CrudNotas.vue */ "./resources/js/components/notas/CrudNotas.vue")["default"]);
 Vue.component('show-character', __webpack_require__(/*! ./components/personajes/Show.vue */ "./resources/js/components/personajes/Show.vue")["default"]);
 Vue.component('create-character', __webpack_require__(/*! ./components/personajes/Add.vue */ "./resources/js/components/personajes/Add.vue")["default"]);
+Vue.component('show-races', __webpack_require__(/*! ./components/personajes/PopulateRaces.vue */ "./resources/js/components/personajes/PopulateRaces.vue")["default"]);
 Vue.component('spinner-load', __webpack_require__(/*! ./components/utilidades/SpinnerComponent.vue */ "./resources/js/components/utilidades/SpinnerComponent.vue")["default"]);
 var app = new Vue({
   el: '#app'
@@ -51312,6 +51393,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Add_vue_vue_type_template_id_f4f7992e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Add_vue_vue_type_template_id_f4f7992e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/personajes/PopulateRaces.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/personajes/PopulateRaces.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PopulateRaces_vue_vue_type_template_id_ed435780___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PopulateRaces.vue?vue&type=template&id=ed435780& */ "./resources/js/components/personajes/PopulateRaces.vue?vue&type=template&id=ed435780&");
+/* harmony import */ var _PopulateRaces_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PopulateRaces.vue?vue&type=script&lang=js& */ "./resources/js/components/personajes/PopulateRaces.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PopulateRaces_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PopulateRaces_vue_vue_type_template_id_ed435780___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PopulateRaces_vue_vue_type_template_id_ed435780___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/personajes/PopulateRaces.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/personajes/PopulateRaces.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/personajes/PopulateRaces.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PopulateRaces_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./PopulateRaces.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/personajes/PopulateRaces.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PopulateRaces_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/personajes/PopulateRaces.vue?vue&type=template&id=ed435780&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/personajes/PopulateRaces.vue?vue&type=template&id=ed435780& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PopulateRaces_vue_vue_type_template_id_ed435780___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./PopulateRaces.vue?vue&type=template&id=ed435780& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/personajes/PopulateRaces.vue?vue&type=template&id=ed435780&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PopulateRaces_vue_vue_type_template_id_ed435780___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PopulateRaces_vue_vue_type_template_id_ed435780___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
