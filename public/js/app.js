@@ -1983,7 +1983,9 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.personaje.raza); //alert(this.key)
     },
     agregar: function agregar() {
-      if (this.personaje.nombre.trim() === '' || this.personaje.raza.trim() === '' || this.personaje.clase.trim() === '' || this.personaje.nivel.trim() === '') {
+      var _this3 = this;
+
+      if (this.personaje.nombre.trim() === '' || this.personaje.raza === '' || this.personaje.clase.trim() === '' || this.personaje.nivel.trim() === '') {
         alert('Debes completar todos los campos antes de guardar');
         return;
       }
@@ -1999,8 +2001,11 @@ __webpack_require__.r(__webpack_exports__);
       this.personaje.clase = '';
       this.personaje.nivel = '';
       axios.post('/personajes', params).then(function (res) {
-        _event_bus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('character-added', res.data.character); // this.personajes.push(res.data)
-        // alert('Personaje Creado Correctamente');
+        _event_bus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('character-added', res.data.character);
+
+        _this3.personajes.push(res.data);
+
+        alert('Personaje Creado Correctamente');
       });
     }
   }
@@ -2054,6 +2059,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _event_bus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../event-bus */ "./resources/js/event-bus.js");
+//
+//
+//
 //
 //
 //
@@ -38810,7 +38818,7 @@ var render = function() {
               "div",
               { staticClass: "card bg-brown-dark text-light text-center " },
               [
-                character.raza === "Mediano"
+                character.raza === "3"
                   ? _c("img", {
                       staticClass:
                         "card-img-top mx-auto d-block rounded-circle m-3 ",
@@ -38820,7 +38828,7 @@ var render = function() {
                           "https://i.pinimg.com/736x/dd/4f/0a/dd4f0a90c075e63e466ccb66172682b8.jpg"
                       }
                     })
-                  : character.raza === "Enano"
+                  : character.raza === "1"
                   ? _c("img", {
                       staticClass:
                         "card-img-top mx-auto d-block rounded-circle m-3",
@@ -38830,7 +38838,7 @@ var render = function() {
                           "https://www.rincondeldm.com/sites/default/files/wiki/254/enano.jpg"
                       }
                     })
-                  : character.raza === "Elfo"
+                  : character.raza === "2"
                   ? _c("img", {
                       staticClass:
                         "card-img-top mx-auto d-block rounded-circle m-3 ",
@@ -38840,7 +38848,7 @@ var render = function() {
                           "https://i.pinimg.com/564x/80/d6/72/80d67232817bda3178e2b2d1193023b1.jpg"
                       }
                     })
-                  : character.raza === "Humano"
+                  : character.raza === "4"
                   ? _c("img", {
                       staticClass:
                         "card-img-top mx-auto d-block rounded-circle m-3",
@@ -38850,7 +38858,7 @@ var render = function() {
                           "https://i.pinimg.com/originals/52/28/88/522888301572b616aff2bd62c47bcf7e.jpg"
                       }
                     })
-                  : character.raza === "Draconido"
+                  : character.raza === "5"
                   ? _c("img", {
                       staticClass:
                         "card-img-top mx-auto d-block rounded-circle m-3",
@@ -38860,7 +38868,7 @@ var render = function() {
                           "https://theactionpoint.files.wordpress.com/2011/11/192.jpg"
                       }
                     })
-                  : character.raza === "Gnomo"
+                  : character.raza === "6"
                   ? _c("img", {
                       staticClass:
                         "card-img-top mx-auto d-block rounded-circle m-3",
@@ -38870,7 +38878,7 @@ var render = function() {
                           "https://i.pinimg.com/originals/49/cb/03/49cb030180c882134a83d4c39fa009a4.jpg"
                       }
                     })
-                  : character.raza === "Semielfo"
+                  : character.raza === "7"
                   ? _c("img", {
                       staticClass:
                         "card-img-top mx-auto d-block rounded-circle m-3",
@@ -38880,7 +38888,7 @@ var render = function() {
                           "http://1.bp.blogspot.com/_B18OpI-w2BM/S9xnxO2udrI/AAAAAAAAC74/pTbJwrj6qk4/w1200-h630-p-k-no-nu/semi.jpg"
                       }
                     })
-                  : character.raza === "Semiorco"
+                  : character.raza === "8"
                   ? _c("img", {
                       staticClass:
                         "card-img-top mx-auto d-block rounded-circle m-3",
@@ -38890,7 +38898,7 @@ var render = function() {
                           "https://i.pinimg.com/564x/62/4a/f6/624af6e6ff82f75058c39f60f24eeb41.jpg"
                       }
                     })
-                  : character.raza === "Tiflin"
+                  : character.raza === "9"
                   ? _c("img", {
                       staticClass:
                         "card-img-top mx-auto d-block rounded-circle m-3",
@@ -38909,7 +38917,10 @@ var render = function() {
                   _vm._v(" "),
                   _c("p", { staticClass: "card-text text-naranjo" }, [
                     _vm._v(
-                      _vm._s(character.raza) + " / " + _vm._s(character.clase)
+                      "\n                            " +
+                        _vm._s(character.raza) +
+                        "\n                                /\n                            " +
+                        _vm._s(character.clase)
                     )
                   ]),
                   _vm._v(" "),

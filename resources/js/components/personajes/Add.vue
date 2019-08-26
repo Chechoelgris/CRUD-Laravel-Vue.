@@ -100,7 +100,7 @@ axios.get('/razas')
             //alert(this.key)
         },
         agregar(){
-         if(this.personaje.nombre.trim() === '' || this.personaje.raza.trim() === '' || this.personaje.clase.trim() === '' || this.personaje.nivel.trim() === '' ){
+         if(this.personaje.nombre.trim() === '' || this.personaje.raza === '' || this.personaje.clase.trim() === '' || this.personaje.nivel.trim() === '' ){
              alert('Debes completar todos los campos antes de guardar');
          return;
         }
@@ -123,8 +123,8 @@ axios.get('/razas')
             .then(res => {
                 EventBus.$emit('character-added', res.data.character)
 
-            // this.personajes.push(res.data)
-            // alert('Personaje Creado Correctamente');
+             this.personajes.push(res.data)
+             alert('Personaje Creado Correctamente');
             })
         },
     }
