@@ -45,10 +45,10 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider($provider)
+    public function redirectToProvider()
     {
-        return $provider;
-        //return Socialite::driver('github')->redirect();
+
+        return Socialite::driver('github')->redirect();
        //Socialite::driver($provider)->redirect();
 
     }
@@ -58,11 +58,11 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback($provider)
+    public function handleProviderCallback()
     {
 
 
-         $actualUser = Socialite::driver($provider)->user();
+         $actualUser = Socialite::driver('github')->user();
          $user = User::where('email', $actualUser->getEmail())->first();
 
        //  add user to database
