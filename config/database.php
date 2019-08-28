@@ -48,17 +48,19 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            //'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'localhost'),
+            'url' => env('DATABASE_URL'),
             //'host' => $DATABASE_URL['host'],
-            'port' => env('DB_PORT', '3306'),
             //'port' => $DATABASE_URL['port'],
-            'database' => env('DB_DATABASE', 'laravel_youtube_vue'),
             //'database' => ltrim($DATABASE_URL['path'], "/"),
-            'username' => 'root',
             //'username' => $DATABASE_URL['user'],
-            'password' => null,
             //'password' => $DATABASE_URL['pass'],
+
+            'host' => env('DB_HOST'),
+            'port' => env('DB_PORT'),
+            'database' => env('DB_DATABASE'),
+            'username' => env('DB_USERNAME'),
+            'password' => env('DB_PASSWORD'),
+
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
