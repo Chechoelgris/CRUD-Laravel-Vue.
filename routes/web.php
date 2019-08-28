@@ -27,8 +27,6 @@ Route::resource('/razas', 'RazaController')->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'auth'], function () {
-    Route::get('/{provider}', 'Auth\LoginController@redirectToProvider');
-    Route::get('/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
-});
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 

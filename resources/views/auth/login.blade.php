@@ -68,11 +68,11 @@
                         <hr>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <a href="{{ url('/auth/github') }}" class="btn btn-github text-light m-1">
+                                <a href="{{ url('/login/github') }}" class="btn btn-github text-light m-1">
                                     <i class="fa fa-github "></i>
                                     GitHub
                                 </a>
-                                <a href="{{ url('/auth/google') }}" class="btn btn-google text-light m-1">
+                                <a href="{{ url('/login/google') }}" class="btn btn-google text-light m-1">
                                     <i class="fa fa-google"></i>
                                     Google
                                 </a>

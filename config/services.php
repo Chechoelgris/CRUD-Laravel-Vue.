@@ -53,9 +53,9 @@ return [
     ],
 
      'google' => [
-            'client_id' => env('GOOGLE_CLIENT_ID'),
-            'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-            'redirect' => 'http://sergiosepulveda.com/auth/google/callback',
+            'client_id' => '644651312775-to6requ3h3q26p038upaffj6dnj2bhnv.apps.googleusercontent.com',
+            'client_secret' => 'rfI2Zt91l7ggTDyoghciRbLb',
+            'redirect' => 'https://sergiosepulveda.com/login/google/callback',
         ],
 
 ];
