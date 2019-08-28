@@ -45,11 +45,10 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider()
+    public function redirectToProvider($provider)
     {
 
-        return Socialite::driver('github')->redirect();
-       //Socialite::driver($provider)->redirect();
+        return Socialite::driver($provider)->redirect();
 
     }
 
@@ -58,29 +57,34 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($provider)
     {
+        try{
+            $user = Socialite::driver($provider)->user();
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            abort(403, 'Unauthorized action.');
+            return redirect()->to('/');
+        }
+        $attributes = [
+            'provider' => $provider,
+            'provider_id' => $user->getId(),
+            'name' => $user->getName(),
+            'email' => $user->getEmail(),
+            'password' => isset($attributes['password']) ? $attributes['password'] : bcrypt(str_random(16))
 
+        ];
 
-         $actualUser = Socialite::driver('github')->user();
-         $user = User::where('email', $actualUser->getEmail())->first();
+        $user = User::where('provider_id', $user->getId() )->first();
+        if (!$user){
+            try{
+                $user=  User::create($attributes);
+            }catch (ValidationException $e){
+              return redirect()->to('/auth/login');
+            }
+        }
 
-       //  add user to database
-         if (!$user) {
-                 $user = User::updateOrCreate([
-                     'email' => $actualUser->getEmail(),
-                     'name' => $actualUser->getName(),
-                     'provider_id' => $actualUser->getId(),
+        $this->guard()->login($user);
+       return redirect()->to($this->redirectTo);
 
-                 ]);
-                //dd($user);
-         }
-
-
-        // login the user
-         Auth::login($user, true);
-
-          return redirect($this->redirectTo);
-    //dd($user);
-     }
+    }
 }
