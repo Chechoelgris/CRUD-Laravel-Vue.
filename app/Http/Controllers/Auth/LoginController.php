@@ -59,32 +59,28 @@ class LoginController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-        try{
-            $user = Socialite::driver($provider)->user();
-        } catch (\GuzzleHttp\Exception\ClientException $e) {
-            abort(403, 'Unauthorized action.');
-            return redirect()->to('/');
-        }
-        $attributes = [
-            'provider' => $provider,
-            'provider_id' => $user->getId(),
-            'name' => $user->getName(),
-            'email' => $user->getEmail(),
-            'password' => isset($attributes['password']) ? $attributes['password'] : bcrypt(str_random(16))
 
-        ];
 
-        $user = User::where('provider_id', $user->getId() )->first();
-        if (!$user){
-            try{
-                $user=  User::create($attributes);
-            }catch (ValidationException $e){
-              return redirect()->to('/auth/login');
-            }
-        }
+         $actualUser = Socialite::driver($provider)->user();
+         $user = User::where('email', $actualUser->getEmail())->first();
 
-        $this->guard()->login($user);
-       return redirect()->to($this->redirectTo);
+       //  add user to database
+         if (!$user) {
+                 $user = User::updateOrCreate([
+                     'email' => $actualUser->getEmail(),
+                     'name' => $actualUser->getName(),
+                     'provider_id' => $actualUser->getId(),
+                     'provider' => $provider,
 
-    }
+                 ]);
+                //dd($user);
+         }
+
+
+        // login the user
+         Auth::login($user, true);
+
+          return redirect($this->redirectTo);
+    //dd($user);
+     }
 }
