@@ -70,7 +70,7 @@ class LoginController extends Controller
                      'email' => $actualUser->getEmail(),
                      'name' => $actualUser->getName(),
                      'provider_id' => $actualUser->getId(),
-                     'provider' => $provider,
+                     //'provider' => $provider,
 
                  ]);
                 //dd($user);
