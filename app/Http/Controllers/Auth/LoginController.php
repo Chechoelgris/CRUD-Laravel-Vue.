@@ -47,9 +47,8 @@ class LoginController extends Controller
      */
     public function redirectToProvider($provider)
     {
-
-        return Socialite::driver($provider)->redirect();
-
+        //return Socialite::driver('github')->redirect();
+       return Socialite::driver($provider)->redirect();
     }
 
     /**
@@ -62,10 +61,24 @@ class LoginController extends Controller
 
 
          $actualUser = Socialite::driver($provider)->user();
+         $user = User::where('email', $actualUser->getEmail())->first();
 
-         Auth::login($actualUser, true);
+       //  add user to database
+         if (!$user) {
+                 $user = User::updateOrCreate([
+                     'email' => $actualUser->getEmail(),
+                     'name' => $actualUser->getName(),
+                     'provider_id' => $actualUser->getId(),
+
+                 ]);
+                //dd($user);
+         }
 
 
+        // login the user
+         Auth::login($user, true);
+
+          return redirect($this->redirectTo);
     //dd($user);
      }
 }
