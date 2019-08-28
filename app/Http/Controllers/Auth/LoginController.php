@@ -49,7 +49,7 @@ class LoginController extends Controller
     {
         //return Socialite::driver('github')->redirect();
         $a = Socialite::driver($provider)->redirect();
-        return $a;
+        dd($a);
     }
 
     /**
