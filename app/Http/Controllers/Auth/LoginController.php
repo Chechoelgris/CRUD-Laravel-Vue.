@@ -62,10 +62,10 @@ class LoginController extends Controller
 
 
          $actualUser = Socialite::driver($provider)->user();
-         $user = User::where('email', $actualUser->getEmail())->first();
+         $findalUser = User::where('email', $actualUser->getEmail())->first();
 
        //  add user to database
-         if (!$user) {
+         if (!$findalUser) {
                  $user = User::updateOrCreate([
                      'email' => $actualUser->getEmail(),
                      'name' => $actualUser->getName(),
@@ -78,7 +78,7 @@ class LoginController extends Controller
 
 
         // login the user
-         Auth::login($user, true);
+         Auth::login($actualUser, true);
 
           return redirect($this->redirectTo);
     //dd($user);
